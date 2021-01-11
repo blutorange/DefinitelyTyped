@@ -1314,6 +1314,14 @@ export interface RaphaelBaseElement<
     getBBox(isWithoutTransform?: boolean): RaphaelAxisAlignedBoundingBox;
 
     /**
+     * Determine if given point is inside this element’s shape
+     * @param x x coordinate of the point
+     * @param y y coordinate of the point
+     * @return `true` if point inside the shape
+     */
+    isPointInside(x: number, y: number): boolean;
+
+    /**
      * Return a set of elements that create a glow-like effect around this element.
      *
      * Note: Glow is not connected to the element. If you change element attributes it will not adjust itself.
@@ -2946,6 +2954,23 @@ export interface RaphaelStatic<
      * @return The adjusted value.
      */
     snapTo(values: number | ReadonlyArray<number>, value: number, tolerance?: number): number;
+
+    /**
+     * Returns `true` if given point is inside the bounding box.
+     * @param bbox bounding box
+     * @param x x coordinate of the point
+     * @param y y coordinate of the point
+     * @return `true` if point the point is inside
+     */
+    isPointInsideBBox(bbox: RaphaelAxisAlignedBoundingBox, x: number, y: number): boolean;
+
+    /**
+     * Returns `true` if two bounding boxes intersect
+     * @param bbox1 first bounding box
+     * @param bbox2 second bounding box
+     * @return `true` if they intersect
+     */
+    isBBoxIntersect(bbox1: RaphaelAxisAlignedBoundingBox, bbox2: RaphaelAxisAlignedBoundingBox): boolean;
 
     /**
      * You can add your own method to elements and sets. It is wise to add a set method for each element method you

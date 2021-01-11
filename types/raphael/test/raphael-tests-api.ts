@@ -335,6 +335,12 @@ function isUsesVml(raphael: RaphaelStatic<any>): raphael is VmlRaphaelStatic {
     // $ExpectType number
     R.snapTo(0, 0, 10);
 
+    // $ExpectType boolean
+    R.isPointInsideBBox(path.getBBox(), 1, 2);
+
+    // $ExpectType boolean
+    R.isBBoxIntersect(path.getBBox(), circle.getBBox());
+
     R.st.green = function() {
         this.forEach(function(item) {
             this.location;
@@ -681,6 +687,9 @@ function isUsesVml(raphael: RaphaelStatic<any>): raphael is VmlRaphaelStatic {
     circle.getBBox().height;
     // $ExpectType RaphaelAxisAlignedBoundingBox
     circle.getBBox(true);
+
+    // $ExpectType boolean
+    circle.isPointInside(5, 0);
 
     // $ExpectError
     circle.getPointAtLength(0);
