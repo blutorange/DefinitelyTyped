@@ -675,9 +675,17 @@ export interface RaphaelAxisAlignedBoundingBox {
      */
     x: number;
     /**
+     * Horizontal coordinate of the bottom right corner.
+     */
+    x2: number;
+    /**
      * Vertical coordinate of the top left corner.
      */
     y: number;
+    /**
+     * Vertical coordinate of the bottom right corner.
+     */
+    y2: number;
     /**
      * Width of the bounding box.
      */

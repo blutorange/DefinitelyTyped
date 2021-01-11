@@ -546,8 +546,12 @@ function isUsesVml(raphael: RaphaelStatic<any>): raphael is VmlRaphaelStatic {
     circle.attr([]);
     // $ExpectType [number | undefined]
     circle.attr(["cy"]);
-    // $ExpectType [string | undefined, number | undefined, "butt" | "square" | "round" | undefined, number | undefined]
-    circle.attr(["fill", "cx", "stroke-linecap", "hue"]);
+    // $ExpectType [string | undefined, number | undefined, number | undefined, number | undefined]
+    circle.attr(["fill", "cx", "fill-opacity", "hue"]);
+
+    // Cannot test, inferred type is sometimes ["butt" | "square" | "round" | undefined ]
+    // and sometimes [RaphaelLineCapType | undefined]
+    circle.attr(["stroke-linecap"]);
 
     // $ExpectType RaphaelElement<"SVG" | "VML", Element | SVGCircleElement>
     circle.attr({
@@ -680,7 +684,11 @@ function isUsesVml(raphael: RaphaelStatic<any>): raphael is VmlRaphaelStatic {
     // $ExpectType number
     circle.getBBox().x;
     // $ExpectType number
+    circle.getBBox().x2;
+    // $ExpectType number
     circle.getBBox().y;
+    // $ExpectType number
+    circle.getBBox().y2;
     // $ExpectType number
     circle.getBBox().width;
     // $ExpectType number
